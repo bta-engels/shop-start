@@ -1,0 +1,9 @@
+.shopContainer{
+    margin: 5rem 0;
+    height: 70vh;
+}
+.shopContainer p {
+    font-size: 5rem;
+    text-align: center;
+
+}
