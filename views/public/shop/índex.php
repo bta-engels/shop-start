@@ -1,4 +1,4 @@
 
 <div class="shopContainer">
-    <p>Bernds Shop</p>
+    <p>Main Shop</p>
 </div>
