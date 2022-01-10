@@ -7,5 +7,7 @@ $id = null;
 
 // @todo: build router logic
 
+require_once 'views/public/manufacturers/index.php';
+
 require_once 'inc/footer.php';
 ?>
