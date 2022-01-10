@@ -1,4 +1,4 @@
-RedirectPermanent /shop http://shop.loc
+RedirectPermanent /shop-start http://shop-start.loc
 
 <IfModule mod_headers.c>
 	Header set Access-Control-Allow-Origin "*"
