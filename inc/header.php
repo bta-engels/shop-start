@@ -1,4 +1,3 @@
-<?php require_once 'MyDB.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

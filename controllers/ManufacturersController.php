@@ -1,6 +1,5 @@
 <?php
 
-class ManufacturersController
-{
+class ManufacturersController {
 
 }
