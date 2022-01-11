@@ -1,5 +1,9 @@
 <footer class="footer">
     <div class="containerBox">
+<?php 
+d($_GET);
+?>
+
         <div class="box">
             <div class="share">
                 <a href="#" class="fab fa-facebook-f"></a>
