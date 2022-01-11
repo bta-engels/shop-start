@@ -24,6 +24,7 @@ if( isset($_GET['controller']) ) {
     // hier action abfragen
     if( isset($_GET['action']) && $controller && method_exists($controller, $_GET['action']) ) {
         $action = $_GET['action'];
+        // checken ob es eine id gibt, die der funktion übergeben werden soll 
         $controller->$action();
     }
 } else {
