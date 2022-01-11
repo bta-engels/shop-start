@@ -1,8 +1,13 @@
 <?php
-require_once 'models/Model.php';
-class Manufacturers extends Model{
-    public function all() {
-        $sql = "SELECT * FROM manufacturers ORDER BY name";
-        return $this->getAll($sql);
+require_once 'models/Manufacturers.php';
+
+class ManufacturersController {
+    
+    public function index() 
+    {
+        $db = new Manufacturers;
+        $data = $db->all();
+
+        require_once 'views/public/manufacturers/index.php';
     }
 }

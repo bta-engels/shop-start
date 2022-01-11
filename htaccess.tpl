@@ -16,4 +16,5 @@ RewriteRule  ^(manufacturers|products)/(edit|store|delete)/([0-9]+)$ index.php?c
 RewriteRule  ^(manufacturers|products)/(edit|store)$ index.php?controller=$1&action=$2&id
 RewriteRule  ^(manufacturers|products)/([0-9]+)$ index.php?controller=$1&action=show&id=$2
 RewriteRule  ^(manufacturers|products)$ index.php?controller=$1&action=index
+RewriteRule  ^home$ index.php?home
 #RewriteRule  ^(.*)$ index.php
