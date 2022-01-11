@@ -10,6 +10,7 @@ if( isset($_GET['controller']) ) {
     // @todo: build router logic
     switch($_GET['controller']) {
         case 'manufacturers':
+            // ManufacturersController importieren und als $controller instanzieren
             break;
     }
     // hier action abfragen
