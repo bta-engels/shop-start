@@ -14,8 +14,8 @@ if (isset($_GET['controller'])){
     switch ($_GET['controller']){
         case 'manufacturers':
             require_once 'controllers/ManufacturersController.php';
-            $manu=new ManufacturersController();
-            echo $manu->index();
+            $controller=new ManufacturersController();
+            echo $controller->index();
             break;
         case 'products':
             require_once 'controllers/ProductsController.php';
