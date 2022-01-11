@@ -1,9 +1,13 @@
 <?php
-require_once 'models/Products.php';
-class ProductsController {
-    public function index(){
-        $db = new Products;
-        $data = $db->all();
+require_once 'controllers/Controller.php';
+
+class ProductsController extends Controller
+{
+    protected $modelClass = 'Products';
+
+    public function index()
+    {
+        $data = $this->model->all();
         require_once 'views/public/products/index.php';
     }
 }
