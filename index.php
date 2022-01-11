@@ -10,7 +10,6 @@ if( isset($_GET['controller']) ) {
     // @todo: build router logic
     switch($_GET['controller']) {
         case 'manufacturers':
-
             break;
     }
     // hier action abfragen
