@@ -1,12 +1,8 @@
 <?php
-require_once 'models/Manufacturers.php';
 
 class ManufacturersController {
-    public function index() {
-        $db = new Manufacturers;
-        $sql = 'SELECT * FROM manufacturers ORDER BY name';
-        $data = $db->getAll($sql);
+    public function index(){
+        die(__METHOD__);
 
-        require_once 'views/public/manufacturers/index.php';
     }
 }
