@@ -15,12 +15,16 @@ if (isset($_GET['controller'])){
         case 'manufacturers':
             require_once 'controllers/ManufacturersController.php';
             $controller=new ManufacturersController();
-            echo $controller->index();
             break;
         case 'products':
             require_once 'controllers/ProductsController.php';
+            $controller=new ProductsController();
             break;
     }
+    if ( isset($_GET['action']) && $controller && method_exists($controller,$_GET['action'])){
+        $action = $_GET['action'];
+        $controller->$action();
+        }
 }else{
 
 }
