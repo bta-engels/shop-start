@@ -1,6 +1,4 @@
-
-<div class="shopContainer">
-    
+<div class="containerBox">
     <div class="box">
         <div class="icon">
             <span class="fas fa-code"></span>
@@ -14,5 +12,4 @@
         </p>
         <a href="#">read more <i class="fas fa-angle-double-right"></i></a>
     </div>
-
 </div>

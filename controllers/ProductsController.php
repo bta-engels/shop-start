@@ -1,6 +1,5 @@
 <?php
 
-class ProductsController
-{
+class ProductsController {
 
 }

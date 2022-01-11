@@ -1,4 +1,3 @@
-<?php require_once 'MyDB.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,4 +85,3 @@
         <p>kein konto <a href="#"> erstelle ein konto</a></p>
     </form>
 </header>
-
