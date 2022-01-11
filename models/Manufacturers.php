@@ -1,13 +1,11 @@
 <?php
 require_once 'models/Model.php';
 
-class Manufacturers {
+class Manufacturers extends Model{
 
-    public function all () {
-
-        $sql= "SELECT CONCAT(firstname,' ', lastname) name FROM authors ORDER BY name";
+    public function all() {
+        $sql = "SELECT * FROM manufacturers ORDER BY name";
         return $this->getAll($sql);
- 
-     }
+    }
 
 }
