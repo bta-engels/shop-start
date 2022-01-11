@@ -6,26 +6,29 @@ $controller = null;
 $action = null;
 $id = null;
 
-// @todo: build router logic
-
-//require_once 'views/public/manufacturers/index.php';
-if( issset($_GET['controller'])) {
+if( isset($_GET['controller']) ) {
     // @todo: build router logic
-    switch() {
+    switch($_GET['controller']) {
         case 'manufacturers':
-
+            // ManufacturersController importieren und als $controller instanzieren
+            require_once 'controllers/ManufacturersController.php';
+            $controller = new ManufacturersController();
             break;
+        case 'products':
+            // ProductsController importieren und als $controller instanzieren
+            require_once 'controllers/ProductsController.php';
+            $controller = new ProductsController();
+            break;
+    }
+    // hier action abfragen
+    if( isset($_GET['action']) && $controller && method_exists($controller, $_GET['action']) ) {
+        $action = $_GET['action'];
+        $controller->$action();
     }
 
 } else {
-    //zeige startseite
-
+    // zeige hier start seite
 }
-
-d($_GET);
-
-//$controller = 'ManufacturersControler';
-//$action = 'index';
 
 require_once 'inc/footer.php';
 ?>
