@@ -17,9 +17,5 @@ if( isset($_GET['controller']) ) {
     // zeige hier start seite
 }
 
-//$controller = 'ManufacturersController';
-//$action = 'index';
-
-
 require_once 'inc/footer.php';
 ?>
