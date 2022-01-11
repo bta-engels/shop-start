@@ -7,14 +7,12 @@ class Controller {
 
     /**
      * Constructor function
-     * wird automatisch augefuhrt bei der Instanzierung der Klasse
+     * wird automatisch ausgeführt bei der Instanzierung der Klasse 
      */
     public function __construct()
     {
         if($this->modelClass) {
-            
             require_once 'models/' . $this->modelClass . '.php';
-
             $this->model = new $this->modelClass();
         }
     }
