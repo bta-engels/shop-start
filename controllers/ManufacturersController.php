@@ -1,9 +1,13 @@
 <?php
+require_once 'models/Manufacturers.php';
 
 class ManufacturersController {
     
     public function index(){
-        die(__METHOD__);
+        $db=new Manufacturers;
+        $data=$db->all();
+        require_once 'views/public/manufacturers/index.php';
+        // die(__METHOD__);
 
     }
 }
