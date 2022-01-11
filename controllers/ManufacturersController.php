@@ -1,12 +1,13 @@
 <?php
-require_once 'models/Manufacturers.php';
+require_once 'controllers/Controller.php';
 
-class ManufacturersController {
+class ManufacturersController extends Controller {
     
+    protected $modelClass = 'Manufacturers';
+
     public function index() 
     {
-        $db = new Manufacturers;
-        $data = $db->all();
+        $data = $this->model->all();
 
         require_once 'views/public/manufacturers/index.php';
     }
