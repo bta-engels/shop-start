@@ -8,7 +8,7 @@ class Controller {
     public function __construct()
     {
         if($this->modelClass) {
-            require_once 'models/'.$this->modelClass . '.php';
+            require_once 'models/' . $this->modelClass . '.php';
             $this->model = new $this->modelClass();
         }
     }
