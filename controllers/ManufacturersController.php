@@ -1,10 +1,9 @@
 <?php
-require_once 'models/Model.php';
-;
-class ManufacturersController {
+require_once 'models/Manufacturers.php';
 
+class ManufacturersController {
     public function index() {
-        $db = new Model;
+        $db = new Manufacturers;
         $sql = 'SELECT * FROM manufacturers ORDER BY name';
         $data = $db->getAll($sql);
 
