@@ -8,5 +8,5 @@
         <p ><?php echo $item['description']; ?></p>
         <a href="#">read more <i class="fas fa-angle-double-right"></i></a>
     </div>
-    <?php endforeach;?>
+    <?php endforeach; ?>
 </div>
