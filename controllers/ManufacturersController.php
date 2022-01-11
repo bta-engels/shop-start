@@ -1,9 +1,8 @@
 <?php
-
-class ManufacturersController {
-    
-    public function index(){
-        die(__METHOD__);
-
+require_once 'models/Model.php';
+class Manufacturers extends Model{
+    public function all() {
+        $sql = "SELECT * FROM manufacturers ORDER BY name";
+        return $this->getAll($sql);
     }
 }
