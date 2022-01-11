@@ -1,5 +1,5 @@
 <nav class="navBar">
-    <a href="home">Home</a>
+    <a href="index.php">Home</a>
     <a href="manufacturers">Hersteller</a>
     <a href="products">Produkte</a>
     <a href="#">About</a>
