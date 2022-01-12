@@ -33,10 +33,15 @@
         <div class="fas fa-bars" id="menu-btn"></div>
         <div class="fas fa-search" id="search-btn"></div>
         <div class="fas fa-shopping-cart" id="card-btn"></div>
-        <!-- soll angezeigt, wenn KEINE auth-session existiert (if) -->
-        <div class="fas fa-user" id="login-btn"></div>
-        <!-- soll angezeigt, wenn auth-session existiert (else) -->
-        <a href="/logout"><div class="fas fa-sign-out-alt"></div></a>
+
+        <?php if(!isset($_SESSION['auth'])): ?>
+            <!-- soll angezeigt, wenn KEINE auth-session existiert (if) -->
+            <div class="fas fa-user" id="login-btn"></div>
+        <?php else: ?>
+            <!-- soll angezeigt, wenn auth-session existiert (else) -->
+            <a href="/logout" title="Logout"><div class="fas fa-sign-out-alt"></div></a>
+        <?php endif; ?>
+        
     </div>
     <div class="shoppingCart">
         <div class="box">
