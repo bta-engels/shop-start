@@ -13,4 +13,21 @@ class Model extends MyDB {
         $sql = "INSERT IGNORE INTO $table (" . implode(',', $cols) . ") VALUES (". implode(',', $placeholders) .")";
         return $this->myQuery($sql, $params);
     }
+
+    public function update(string $table, array $params) {
+        $colValues = [];
+        // kurze version:
+        //$colValues = array_map(fn($col) => "$col = :$col", array_keys($params));
+        // oder per foreach
+        foreach(array_keys($params) as $col) {
+            if($col !== 'id') {
+                $colValues[] = "$col = :$col";
+            }
+        }
+        $sql = "UPDATE $table SET ". implode(',', $colValues) . " WHERE id=:id";
+//        d($sql);
+//        d($params);
+//        die();
+//        return $this->myQuery($sql, $params);
+    }
 }

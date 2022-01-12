@@ -16,9 +16,10 @@ class Controller {
             require_once 'models/' . $this->modelClass . '.php';
             $this->model = new $this->modelClass();
         }
+
         $modelPath = strtolower($this->modelClass);
-        if ( isset($_SESSION['auth']) )
-        {
+        
+        if ( isset($_SESSION['auth']) ) {
             $this->viewPath = 'views/admin/'.$modelPath;
         } else {
             $this->viewPath = 'views/public/'.$modelPath;

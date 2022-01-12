@@ -5,6 +5,7 @@ class ManufacturersController extends Controller
 {
 
     protected $modelClass = 'Manufacturers';
+
     public function index() 
     {
         $data = $this->model->all();
@@ -14,6 +15,7 @@ class ManufacturersController extends Controller
     public function show($id) 
     {
         $data = $this->model->one($id);
+        $this->model->update('manufacturers', $data);
         require_once $this->viewPath.'/show.php';
     }
 }
