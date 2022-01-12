@@ -5,7 +5,7 @@ RedirectPermanent /shop-start http://shop-start.loc
 </IfModule>
 
 RewriteEngine On
-RewriteRule  ^login$ index.php?controller=user&action=login
+#RewriteRule  ^login$ index.php?controller=user&action=login
 RewriteRule  ^login/check$ index.php?controller=user&action=check
 RewriteRule  ^logout$ index.php?controller=user&action=logout
 
