@@ -12,4 +12,10 @@ class ManufacturersController extends Controller
 
         require_once 'views/public/manufacturers/index.php';
     }
+    public function show($id) 
+    {
+        $data = $this->model->one($id);
+
+        require_once 'views/public/manufacturers/show.php';
+    }
 }
