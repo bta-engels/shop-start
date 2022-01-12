@@ -4,6 +4,7 @@ class Controller {
 
     protected $model;
     protected $modelClass;
+    protected $viewPath;
 
     /**
      * Constructor function
