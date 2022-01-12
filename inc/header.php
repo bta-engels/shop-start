@@ -33,13 +33,15 @@
         <div class="fas fa-bars" id="menu-btn"></div>
         <div class="fas fa-search" id="search-btn"></div>
         <div class="fas fa-shopping-cart" id="card-btn"></div>
+        <!-- soll angezeigt, wenn KEINE auth-session existiert (if) -->
         <div class="fas fa-user" id="login-btn"></div>
-        <a href="/products"><div class="fas fa-sign-out-alt"></div></a>
+        <!-- soll angezeigt, wenn auth-session existiert (else) -->
+        <a href="/logout"><div class="fas fa-sign-out-alt"></div></a>
     </div>
     <div class="shoppingCart">
         <div class="box">
             <i class="fas fa-times"></i>
-            <img src="logo.png" alt="" />
+            <img src="/img/logo.png" alt="" />
             <div class="content">
                 <h3>texttext</h3>
                 <span class="quantity">1</span>
@@ -49,7 +51,7 @@
         </div>
         <div class="box">
             <i class="fas fa-times"></i>
-            <img src="logo.png" alt="" />
+            <img src="/img/logo.png" alt="" />
             <div class="content">
                 <h3>texttext</h3>
                 <span class="quantity">1</span>
@@ -59,7 +61,7 @@
         </div>
         <div class="box">
             <i class="fas fa-times"></i>
-            <img src="logo.png" alt="" />
+            <img src="/img/logo.png" alt="" />
             <div class="content">
                 <h3>texttext</h3>
                 <span class="quantity">1</span>
@@ -70,11 +72,12 @@
         <h3 class="total">total : <span>56.99</span></h3>
         <a href="#" class="btn">checkout</a>
     </div>
-    <form action="" class="loginForm">
+    <form method="post" action="/login/check" class="loginForm">
         <h3>login form</h3>
-        <input type="email" placeholder="schreib deine email" class="box" />
+        <input type="email" name="email" placeholder="schreib deine email" class="box" />
         <input
             type="password"
+            name="password"
             placeholder="schreib dein passwort"
             class="box"
         />
