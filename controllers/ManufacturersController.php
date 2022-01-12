@@ -15,7 +15,6 @@ class ManufacturersController extends Controller
     public function show($id) 
     {
         $data = $this->model->one($id);
-        $this->model->update('manufacturers', $data);
         require_once $this->viewPath.'/show.php';
     }
 }
