@@ -83,6 +83,6 @@
         </div>
         <input type="submit" value="jetzt anmelden" class="btn" />
         <p>passwort vergessen? <a href="#">klick hier</a></p>
-        <p>kein konto <a href="#"> erstelle ein konto</a></p>
+        <p>kein konto <a href="#">erstelle ein Konto</a></p>
     </form>
 </header>

@@ -16,7 +16,8 @@ class Products extends Model {
         return $this->getAll($sql);
     }
 
-    public function one($id) {
+        public function one($id) {
+
         $sql = "SELECT 
             p.id,
             p.name,
@@ -24,11 +25,9 @@ class Products extends Model {
             m.name manufacturer_name,
             m.description manufacturer_description
         FROM products p 
-        JOIN manufacturers m ON m.id = p.manufacturer_id 
-        WHERE p.id= ?";        
-                    
-        
+        JOIN manufacturers m ON m.id = p.manufacturer_id
+        WHERE p.id = ?";
+
         return $this->getOne($sql, [$id]);
     }
-
 }

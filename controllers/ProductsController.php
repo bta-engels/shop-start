@@ -14,7 +14,6 @@ class ProductsController extends Controller
     public function show($id) 
     {
         $data = $this->model->one($id);
-
         require_once 'views/public/products/show.php';
     }
 }
