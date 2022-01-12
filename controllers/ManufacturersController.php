@@ -9,7 +9,12 @@ class ManufacturersController extends Controller
     public function index() 
     {
         $data = $this->model->all();
-        require_once 'views/public/manufacturers/index.php';
+        if ( isset($_SESSION['auth']) ){
+            require_once 'views/admin/manufacturers/index.php';
+
+        } else {
+            require_once 'views/public/manufacturers/index.php';
+        }
     }
 
     public function show($id) 

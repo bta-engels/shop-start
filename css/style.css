@@ -368,6 +368,11 @@ label {
 	justify-content: space-between;
 	justify-items: center;
 }
+.manubuttons{
+	display: flex;
+	justify-content: space-around;
+	justify-items: center;
+}
 
 @media (max-width: 720px) {
 	.header {
@@ -450,3 +455,4 @@ label {
 		display: inline-block;
 	}
 }
+
