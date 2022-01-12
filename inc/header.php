@@ -34,6 +34,7 @@
         <div class="fas fa-search" id="search-btn"></div>
         <div class="fas fa-shopping-cart" id="card-btn"></div>
         <div class="fas fa-user" id="login-btn"></div>
+        <a href="/products"><div class="fas fa-sign-out-alt"></div></a>
     </div>
     <div class="shoppingCart">
         <div class="box">
