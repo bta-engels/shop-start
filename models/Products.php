@@ -4,23 +4,30 @@ require_once 'models/Model.php';
 class Products extends Model {
 
     public function all() {
-        $sql = "SELECT p.id,p.name ,
-        p.description,
-        m.name AS manufacturer_name,
-        m.description AS manufacturer_description
+        $sql = "SELECT 
+            p.id,
+            p.name,
+            p.description,
+            m.name manufacturer_name,
+            m.description manufacturer_description
         FROM products p 
         JOIN manufacturers m ON m.id = p.manufacturer_id ORDER BY name";
+
         return $this->getAll($sql);
     }
-    public function one($id) {
-        $sql = "SELECT p.id,p.name ,
-        p.description,
-        m.name manufacturer_name,
-        m.description manufacturer_description
+
+        public function one($id) {
+
+        $sql = "SELECT 
+            p.id,
+            p.name,
+            p.description,
+            m.name manufacturer_name,
+            m.description manufacturer_description
         FROM products p 
-        JOIN manufacturers m ON m.id = p.manufacturer_id WHERE p.id=?";
-        return $this->getOne($sql,[$id]);
+        JOIN manufacturers m ON m.id = p.manufacturer_id
+        WHERE p.id = ?";
+
+        return $this->getOne($sql, [$id]);
     }
-
-
 }
