@@ -7,9 +7,9 @@ class Manufacturers extends Model{
         $sql = "SELECT * FROM manufacturers ORDER BY name";
         return $this->getAll($sql);
     }
-    public function one($id) {
-        $sql = "SELECT * FROM manufacturers WHERE id=$id";
-        return $this->getOne($sql);
+    public function one(int $id) {
+        $sql = "SELECT * FROM manufacturers WHERE id=?";
+        return $this->getOne($sql,[$id]);
     }
 
 }
