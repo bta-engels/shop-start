@@ -1,8 +1,8 @@
 <footer class="footer">
     <div class="containerBox">
 <?php 
-d($_GET);
-d($_SESSION);
+// d($_GET);
+// d($_SESSION);
 ?>
 
         <div class="box">
