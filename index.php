@@ -25,7 +25,13 @@ if( isset($_GET['controller']) ) {
     if( isset($_GET['action']) && $controller && method_exists($controller, $_GET['action']) ) {
         $action = $_GET['action'];
         // checken ob es eine id gibt, die der funktion übergeben werden soll 
-        $controller->$action();
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+            $controller->$action($id);
+        } else {
+            $controller->$action();
+
+        }
     }
 } else {
     // zeige hier start seite
