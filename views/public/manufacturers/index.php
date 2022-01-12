@@ -1,5 +1,5 @@
 <div class="containerBox">
-    <?php foreach ($data as $item):?>    
+    <?php foreach ($data as $item):?>  
     <div class="box">
         <div class="icon">
             <span class="fas fa-code"></span>
