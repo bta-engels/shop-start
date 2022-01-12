@@ -1,12 +1,12 @@
 <?php
 session_start();
+
 require_once 'inc/header.php';
 require_once 'inc/functions.php';
 
 $controller = null;
 $action = null;
 $id = null;
-
 
 if( isset($_GET['controller']) ) {
     // @todo: build router logic
@@ -35,9 +35,8 @@ if( isset($_GET['controller']) ) {
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             $controller->$action($id);
-        }  else {
+        } else {
             $controller->$action();
-
         }
     }
 } else {

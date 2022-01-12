@@ -3,7 +3,6 @@
 <?php 
 d($_GET);
 d($_SESSION);
-
 ?>
 
         <div class="box">
