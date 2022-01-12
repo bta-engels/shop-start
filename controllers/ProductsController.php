@@ -10,4 +10,10 @@ class ProductsController extends Controller
         $data = $this->model->all();
         require_once 'views/public/products/index.php';
     }
+
+    public function show($id) 
+    {
+        $data = $this->model->one($id);
+        require_once 'views/public/products/show.php';
+    }
 }
