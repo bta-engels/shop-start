@@ -17,7 +17,6 @@ class Products extends Model {
     }
 
     public function one($id) {
-
         $sql = "SELECT 
             p.id,
             p.name,
