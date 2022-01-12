@@ -8,7 +8,12 @@ class ProductsController extends Controller
     public function index()
     {
         $data = $this->model->all();
-        require_once 'views/public/products/index.php';
+        if ( isset($_SESSION['auth'])) 
+        {
+            require_once 'views/admin/products/index.php';
+        }else{
+            require_once 'views/public/products/index.php';
+        }
     }
 
     public function show($id) 
