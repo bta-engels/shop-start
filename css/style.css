@@ -190,9 +190,16 @@ label {
 	top: 115%;
 	width: 25rem;
 }
-.editBox{
+.editBox form{
 	margin-top: 120px;
+	margin-left: 40px;
+	width: 600px;
 	
+}
+select{
+	padding: 0 6rem;
+	color: aqua;
+	cursor: pointer;
 }
 .field{
     outline: none;
