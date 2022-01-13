@@ -12,5 +12,9 @@ class Manufacturers extends Model{
         $sql = "SELECT * FROM manufacturers WHERE id=?";
         return $this->getOne($sql, [$id]);
     }
+    
+    public function delete($id) {
+        return $this->remove('manufacturers',$id);
+    }
 
 }

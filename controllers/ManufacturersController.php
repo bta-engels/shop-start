@@ -46,4 +46,10 @@ class ManufacturersController extends Controller
         }
         header('location: /manufacturers');
     }
+
+    public function delete($id)
+    {
+        $this->model->delete($id);
+        header('location: /manufacturers');
+    }
 }
