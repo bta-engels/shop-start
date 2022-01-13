@@ -30,4 +30,10 @@ class Model extends MyDB {
         // die();
         return $this->myQuery($sql, $params);
     }
+
+    public function remove(string $table, int $id)
+    {
+        $sql = "DELETE FROM $table WHERE id = ?";
+        return $this->myQuery($sql, [$id]);
+    }
 }

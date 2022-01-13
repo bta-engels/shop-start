@@ -29,4 +29,9 @@ class Products extends Model {
 
         return $this->getOne($sql, [$id]);
     }
+
+    public function delete($id) {
+        return $this->remove('products', $id);
+    }
+
 }
