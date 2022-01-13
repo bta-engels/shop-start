@@ -2,20 +2,30 @@
 require_once 'inc/header.php';
 ?>
 <div class="editBox">
-    <form  action="" method="post">
-        <h2>Update </h2>
-        <label >Manufacturer Name</label><br>
-        <input type="text" name="name" class="field" placeholder="Name">
-        <label >Manufacturer Description</label><br>
+    <form  action="/products/store<?php if(isset($data['id'])) echo '/'.$data['id']; ?>" method="post">
+        <h2>Produkt</h2>
+        <label>Name</label><br>
+        <input type="text" name="name" class="field" placeholder="Name" 
+            value="<?php echo $data['name'] ?? ''; ?>">
+        <label >Hersteller</label><br>
         <div class="select">
-            <select name="manufacturers_id">
-                <option value="">item</option>
-                <option value="">item</option>
+            <select name="manufacturer_id">
+                <option value="">Bitte wählen</option>
+                <?php 
+                foreach($manufacturers as $item): 
+                    $selected = '';
+                    if(isset($data['manufacturer_id']) && $data['manufacturer_id'] === $item['id']) {
+                        $selected = 'selected';
+                    }
+                ?>
+                <option value="<?php echo $item['id']; ?>" <?php echo $selected; ?>><?php echo $item['name']; ?></option>
+                <?php endforeach; ?>
             </select>
         </div>
+        <label>Beschreibung</label><br>
         <textarea name="description" class="field" cols="30" rows="10" 
-        placeholder="Description"></textarea>
-        <button class="btn">Update</button>
+        placeholder="Description"><?php echo $data['description'] ?? ''; ?></textarea>
+        <button class="btn">Speichern</button>
     </form>
 </div>
 
