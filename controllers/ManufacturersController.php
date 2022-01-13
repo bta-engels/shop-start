@@ -17,8 +17,25 @@ class ManufacturersController extends Controller
         $data = $this->model->one($id);
         require_once $this->viewPath.'/show.php';
     }
-    public function edit($id) 
+    public function edit($id = null) 
     {
         require_once $this->viewPath.'/edit.php';
     }
+    public function store($id = null) 
+    {
+        $params=
+        if ($id)
+        {
+            $data = $this->model->update($id,$params);
+        }
+        
+        
+        
+        
+        require_once $this->viewPath.'/store.php';
+    }
+
+
+
+
 }

@@ -25,9 +25,9 @@ class Model extends MyDB {
             }
         }
         $sql = "UPDATE $table SET ". implode(',', $colValues) . " WHERE id=:id";
-//        d($sql);
-//        d($params);
-//        die();
+        d($sql);
+        d($params);
+        die();
 //        return $this->myQuery($sql, $params);
     }
 }
