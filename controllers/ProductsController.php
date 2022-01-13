@@ -23,10 +23,12 @@ class ProductsController extends Controller
         var_dump($id);
         $data = null;
         $manufacturers = (new Manufacturers)->all();
+
         if ( $id ) {
             $data = $this->model->one($id);
             $data['description'] = str_replace('<br />',"\n", $data['description']);
         }
+        
         require_once $this->viewPath.'/edit.php';
     }
 
