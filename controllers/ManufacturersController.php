@@ -23,11 +23,11 @@ class ManufacturersController extends Controller
         $data = null;
         if ( $id ) {
             $data = $this->model->one($id);
-            $data['description'] = str_replace('<br />',"\n",$data['description']);
+            $data['description'] = str_replace('<br />',"\n", $data['description']);
         } 
         require_once $this->viewPath.'/edit.php';
     }
-// http://shop-start.loc/manufacturers/store%3Cbr%20/%3E%3Cb%3EWarning%3C/b%3E:%20%20Trying%20to%20access%20array%20offset%20on%20value%20of%20type%20null%20in%20%3Cb%3E/Applications/XAMPP/xamppfiles/htdocs/shop-start/views/admin/manufacturers/edit.php%3C/b%3E%20on%20line%20%3Cb%3E6%3C/b%3E%3Cbr%20/%3E/
+
     public function store($id = null) 
     {   
         if ( $id ) {   
