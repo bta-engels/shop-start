@@ -23,6 +23,7 @@ class ManufacturersController extends Controller
         $data = null;
         if ( $id ) {
             $data = $this->model->one($id);
+            $data['description'] = str_replace('<br />',"\n", $data['description']);
         } 
         require_once $this->viewPath.'/edit.php';
     }
