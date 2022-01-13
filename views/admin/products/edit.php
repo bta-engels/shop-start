@@ -4,7 +4,7 @@ require_once 'inc/header.php';
 ?>
 <div class="editBox">
     <form  action="" method="post">
-        <h2>Update</h2>
+        <h2>Update </h2>
         <label >Manufacturer Name</label><br>
         <input type="text" name="name" class="field"   placeholder="Name">
         <label >Manufacturer Description</label><br>
