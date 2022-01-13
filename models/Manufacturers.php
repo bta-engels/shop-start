@@ -16,8 +16,4 @@ class Manufacturers extends Model {
     public function delete($id) {
         return $this->remove('manufacturers',$id);
     }
-
-    public function delete($id) {
-        return $this->remove('manufacturers', $id);
-    }
 }
