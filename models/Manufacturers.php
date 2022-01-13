@@ -13,4 +13,8 @@ class Manufacturers extends Model{
         return $this->getOne($sql, [$id]);
     }
 
+    public function delete($id) {
+        return $this->remove($sql'manufacturers', $id);
+    }    
+
 }
