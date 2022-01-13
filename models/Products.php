@@ -31,6 +31,7 @@ class Products extends Model {
     }
 
     public function delete($id) {
-        return $this->remove('products',$id);
+        return $this->remove('products', $id);
     }
+
 }
