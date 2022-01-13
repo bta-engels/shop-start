@@ -5,6 +5,7 @@ class Products extends Model {
 
     public function all() {
         $sql = "SELECT 
+            p.manufacturer_id,
             p.id,
             p.name,
             p.description,
@@ -18,6 +19,7 @@ class Products extends Model {
 
     public function one($id) {
         $sql = "SELECT 
+            p.manufacturer_id,
             p.id,
             p.name,
             p.description,

@@ -1,8 +1,10 @@
 <footer class="footer">
     <div class="containerBox">
 <?php 
-// d($_GET);
+d($_GET);
 // d($_SESSION);
+// d($data);
+// d($manufacturers);
 ?>
 
         <div class="box">

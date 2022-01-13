@@ -2,20 +2,23 @@
 require_once 'inc/header.php';
 ?>
 <div class="editBox">
-    <form  action="" method="post">
-        <h2>Update </h2>
-        <label >Manufacturer Name</label><br>
-        <input type="text" name="name" class="field" placeholder="Name">
-        <label >Manufacturer Description</label><br>
+    <form  action="/products/store<?php if(isset($data['id'])) echo '/'.$data['id']; ?>" method="post">
+        <h2>Products </h2>
+        <label >Product Name</label><br>
+        <input type="text" name="name" class="field" placeholder="Name" value="<?php echo $data['name'] ?? ''; ?>">
+        <label >Product Description</label><br>
+        <textarea name="description" class="field" cols="30" rows="10" 
+        placeholder="Description"><?php echo $data['description'] ?? ''; ?></textarea>
         <div class="select">
-            <select name="manufacturers_id">
-                <option value="">item</option>
-                <option value="">item</option>
+            <select name="manufacturer_id">
+                <option value="">Bitte wählen</option>
+                <?php foreach ($manufacturers as $item) :?>
+                    <option value="<?php echo $item['id'] ?>"><?php echo $item['name'] ?></option>
+                <?php endforeach;?>
             </select>
         </div>
-        <textarea name="description" class="field" cols="30" rows="10" 
-        placeholder="Description"></textarea>
-        <button class="btn">Update</button>
+        
+        <button class="btn">Speichern</button>
     </form>
 </div>
 
