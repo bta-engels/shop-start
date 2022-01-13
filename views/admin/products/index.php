@@ -1,10 +1,8 @@
-
-
 <div class="manuController">
-    <a href="/products/edit"> Neu Eintrag</a><br>
+    <a href="/products/edit">Neu Eintrag</a><br>
     <div class="containerBox">
-        <?php if ( is_array($data) && count($data) > 0 ):?>
-        <?php foreach ($data as $item): ?> 
+        <?php if ( is_array($data) && count($data) > 0 ): ?>
+            <?php foreach ($data as $item):?>
             <div class="box">
                 <div class="icon">
                     <span class="fas fa-code"></span>
@@ -17,7 +15,7 @@
                     <a href="/products/delete/<?php echo $item['id'] ?>"><i class="fas fa-trash-alt"></i> Delete</a>
                 </div>
             </div>
-            <?php endforeach; ?>
+            <?php endforeach;?>
         <?php else: ?>
             <h2>Keine Daten vorhanden</h2>
         <?php endif; ?>
