@@ -8,6 +8,7 @@ class Products extends Model {
             p.id,
             p.name,
             p.description,
+            p.manufacturer_id,
             m.name manufacturer_name,
             m.description manufacturer_description
         FROM products p 
@@ -21,6 +22,7 @@ class Products extends Model {
             p.id,
             p.name,
             p.description,
+            p.manufacturer_id,
             m.name manufacturer_name,
             m.description manufacturer_description
         FROM products p 

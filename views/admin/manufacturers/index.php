@@ -1,7 +1,7 @@
 <div class="manuController">
     <a href="/manufacturers/edit"> Neu Eintrag</a><br>
     <div class="containerBox">
-        
+    <?php if ( is_array($data) && count($data) > 0): ?>     
         <?php foreach ($data as $item):?>    
         <div class="box">
             <div class="icon">
@@ -16,5 +16,8 @@
             </div>
         </div>
         <?php endforeach; ?>
+    <?php else: ?>
+        <h2> Keine Daten vorhanden</h2>
+    <?php endif; ?>    
     </div>
 </div>
