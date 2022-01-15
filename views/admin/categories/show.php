@@ -3,7 +3,6 @@
         <div class="icon">
             <span class="fas fa-code"></span>
         </div>
-        <h3 class="title"><?php echo $data['name']; ?> (<?php echo $data['manufacturer_name']; ?>)</h3>
-        <p><?php echo $data['description']; ?></p>
+        <h3 class="title"><?php echo $data['name']; ?></h3>
     </div>
 </div>

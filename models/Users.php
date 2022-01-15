@@ -3,9 +3,11 @@ require_once 'models/Model.php';
 
 class Users extends Model {
 
-    public function check(string $email, string $password) 
+    protected $table = 'users';
+
+    public function check(string $email, string $password)
     {
-        $sql = "SELECT * FROM users WHERE email=? AND password=?";
+        $sql = "SELECT id,name,email FROM $this->table WHERE email=? AND password=?";
         return $this->getOne($sql, [$email, md5($password)]);
     }
 }

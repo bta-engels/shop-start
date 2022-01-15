@@ -1,15 +1,13 @@
 <?php
 require_once 'controllers/Controller.php';
-require_once 'models/Manufacturers.php';
-require_once 'models/Categories.php';
 
-class ProductsController extends Controller
+class PagesController extends Controller
 {
-    protected $modelClass = 'Products';
+    protected $modelClass = 'Pages';
 
     public function index()
     {
-        $data = $this->model->all();
+        $data = $this->model->all('title');
         require_once $this->viewPath.'/index.php';
     }
 
@@ -22,12 +20,10 @@ class ProductsController extends Controller
     public function edit($id = null)
     {
         $data = null;
-        $manufacturers = (new Manufacturers)->all();
-        $categories = (new Categories)->all();
 
         if ( $id ) {
             $data = $this->model->one($id);
-            $data['description'] = strip_tags($data['description']);
+            $data['body'] = strip_tags($data['body']);
         }
 
         require_once $this->viewPath.'/edit.php';
@@ -36,10 +32,8 @@ class ProductsController extends Controller
     public function store($id = null)
     {
         $params = [
-            'name'              => $_POST['name'],
-            'manufacturer_id'   => $_POST['manufacturer_id'],
-            'category_id'       => $_POST['category_id'],
-            'description'       => nl2br($_POST['description']),
+            'title' => $_POST['title'],
+            'body'  => nl2br($_POST['body']),
         ];
         if ( $id ) {
             $params += ['id' => $id];
@@ -47,11 +41,11 @@ class ProductsController extends Controller
         } else {
             $this->model->insert($params);
         }
-        header('location: /products');
+        header('location: /pages');
     }
 
     public function delete(int $id) {
         $this->model->delete($id);
-        header('location: /products');
+        header('location: /pages');
     }
 }
