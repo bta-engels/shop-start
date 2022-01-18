@@ -27,6 +27,26 @@ if( isset($_GET['controller']) ) {
             require_once 'controllers/UsersController.php';
             $controller = new UsersController();
             break;
+        case 'features':
+            // UsersController importieren und als $controller instanzieren
+            require_once 'controllers/FeaturesController.php';
+            $controller = new FeaturesController();
+            break;
+        case 'blogs':
+            // UsersController importieren und als $controller instanzieren
+            require_once 'controllers/BlogsController.php';
+            $controller = new BlogsController();
+            break;
+        case 'pages':
+            // UsersController importieren und als $controller instanzieren
+            require_once 'controllers/PagesController.php';
+            $controller = new PagesController();
+            break;
+        case 'categories':
+            // UsersController importieren und als $controller instanzieren
+            require_once 'controllers/CategoriesController.php';
+            $controller = new CategoriesController();
+            break;
     }
     // hier action abfragen
     if( isset($_GET['action']) && $controller && method_exists($controller, $_GET['action']) ) {

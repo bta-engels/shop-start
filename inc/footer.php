@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="containerBox">
 <?php 
-d($_GET);
+// d($_GET);
 // d($_SESSION);
 // d($data);
 // d($manufacturers);
@@ -29,18 +29,19 @@ d($_GET);
         </div>
         <div class="box">
             <h3 class="title">mehr links</h3>
-            <a href="#" class="link"><i class="fas fa-arrow-right"></i>Home</a>
-            <a href="#" class="link"
+            <a href="/home" class="link"><i class="fas fa-arrow-right"></i>Home</a>
+            <a href="/manufacturers" class="link"><i class="fas fa-arrow-right"></i>Manufacturers</a>
+            <a href="/features" class="link"
             ><i class="fas fa-arrow-right"></i>Features</a
             >
-            <a href="#" class="link"
+            <a href="/products" class="link"
             ><i class="fas fa-arrow-right"></i>prokukte</a
             >
-            <a href="#" class="link"
+            <a href="/categories" class="link"
             ><i class="fas fa-arrow-right"></i>Categorie</a
             >
-            <a href="#" class="link"><i class="fas fa-arrow-right"></i>review</a>
-            <a href="#" class="link"><i class="fas fa-arrow-right"></i>blog</a>
+            <a href="/pages" class="link"><i class="fas fa-arrow-right"></i>About</a>
+            <a href="/blogs" class="link"><i class="fas fa-arrow-right"></i>blog</a>
         </div>
     </div>
 </footer>

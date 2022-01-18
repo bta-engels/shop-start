@@ -1,6 +1,7 @@
 <?php
 require_once 'controllers/Controller.php';
 require_once 'models/Manufacturers.php';
+require_once 'models/Categories.php';
 
 class ProductsController extends Controller
 {
@@ -23,6 +24,7 @@ class ProductsController extends Controller
         var_dump($id);
         $data = null;
         $manufacturers = (new Manufacturers)->all();
+        $categories = (new Categories)->all();
         if ( $id ) {
             $data = $this->model->one($id);
             $data['description'] = str_replace('<br />',"\n", $data['description']);
@@ -35,6 +37,7 @@ class ProductsController extends Controller
         $params = [
             'name'              => $_POST['name'],
             'manufacturer_id'   => $_POST['manufacturer_id'],
+            'categorie_id'   => $_POST['categorie_id'],
             'description'       => nl2br($_POST['description']),
         ];
         if ( $id ) {
@@ -51,42 +54,5 @@ class ProductsController extends Controller
         header('location: /products');
     }
 
-    public function edit($id = null) 
-    {
-        $data = null;
-        $manufacturers = (new Manufacturers)->all();
-        if ( $id ) {
-            $data = $this->model->one($id);
-            $data['description'] = str_replace('<br />',"\n", $data['description']);
-        } 
-        require_once $this->viewPath.'/edit.php';
-    }
-
-    public function store($id = null) 
-    {   
-        if ( $id ) {   
-            $params = [ 
-                'id' => $id,
-                'name' => $_POST['name'],
-                'description' => nl2br($_POST['description']),
-                'manufacturer_id' => $_POST['manufacturer_id'],
-            ];
-            $this->model->update('products', $params);
-        } else {
-            $params = [ 
-                'name' => $_POST['name'],
-                'description' => nl2br($_POST['description']),
-                'manufacturer_id' => $_POST['manufacturer_id']
-            ];
-            $this->model->insert('products', $params);
-        }
-        // d($params);
-        // die();
-        header('location: /products');
-    }
-
-    public function delete(int $id) {
-        $this->model->delete($id);
-        header('location: /products');
-    }
+    
 }

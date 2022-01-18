@@ -24,6 +24,21 @@ require_once 'inc/header.php';
                 <?php endforeach; ?>
             </select>
         </div>
+        <label >Categories</label><br>
+        <div class="select">
+            <select name="categorie_id">
+                <option value="">Bitte wählen</option>
+                <?php 
+                foreach($categories as $item): 
+                    $selected = '';
+                    if(isset($data['categorie_id']) && $data['categorie_id'] === $item['id']) {
+                        $selected = 'selected';
+                    }
+                ?>
+                <option value="<?php echo $item['id']; ?>" <?php echo $selected; ?>><?php echo $item['name']; ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
         <label>Beschreibung</label><br>
         <textarea name="description" class="field" cols="30" rows="10" 
         placeholder="Description"><?php echo $data['description'] ?? ''; ?></textarea>
