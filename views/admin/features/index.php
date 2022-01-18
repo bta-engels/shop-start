@@ -2,13 +2,13 @@
     <a href="/features/edit">Neu Eintrag</a><br>
     <div class="containerBox">
         <?php if ( is_array($data) && count($data) > 0 ): ?>
-        <?php foreach ($data as $item): ?> 
+        <?php foreach ($data as $item): ?>
             <div class="box">
                 <div class="icon">
                     <span class="fas fa-code"></span>
                 </div>
                 <h3 class="title"><?php echo $item['title']; ?></h3>
-                <p ><?php echo $item['body']; ?></p>
+                <p><?php echo nl2br($item['body']); ?></p>
                 <div class="manubuttons">
                     <a href="/features/<?php echo $item['id'] ?>"><i class="fas fa-angle-double-right"></i> Details</a>
                     <a href="/features/edit/<?php echo $item['id'] ?>"><i class="fas fa-edit"></i> Edit</a>

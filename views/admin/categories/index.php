@@ -2,7 +2,7 @@
     <a href="/categories/edit">Neu Eintrag</a><br>
     <div class="containerBox">
         <?php if ( is_array($data) && count($data) > 0 ): ?>
-        <?php foreach ($data as $item): ?> 
+        <?php foreach ($data as $item): ?>
             <div class="box">
                 <div class="icon">
                     <span class="fas fa-code"></span>

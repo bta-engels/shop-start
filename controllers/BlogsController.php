@@ -3,12 +3,11 @@ require_once 'controllers/Controller.php';
 
 class BlogsController extends Controller
 {
-
     protected $modelClass = 'Blogs';
 
     public function index()
     {
-        $data = $this->model->all();
+        $data = $this->model->all('title');
         require_once $this->viewPath.'/index.php';
     }
 
@@ -21,28 +20,26 @@ class BlogsController extends Controller
     public function edit($id = null)
     {
         $data = null;
+
         if ( $id ) {
             $data = $this->model->one($id);
-            $data['body'] = str_replace('<br />',"\n", $data['body']);
+            $data['body'] = strip_tags($data['body']);
         }
+
         require_once $this->viewPath.'/edit.php';
     }
 
     public function store($id = null)
     {
+        $params = [
+            'title' => $_POST['title'],
+            'body'  => nl2br($_POST['body']),
+        ];
         if ( $id ) {
-            $params = [
-                'id' => $id,
-                'title' => $_POST['title'],
-                'body' => nl2br($_POST['body']),
-            ];
-            $this->model->update('blogs', $params);
+            $params += ['id' => $id];
+            $this->model->update($params);
         } else {
-            $params = [
-                'title' => $_POST['title'],
-                'body' => nl2br($_POST['body']),
-            ];
-            $this->model->insert('blogs', $params);
+            $this->model->insert($params);
         }
         header('location: /blogs');
     }

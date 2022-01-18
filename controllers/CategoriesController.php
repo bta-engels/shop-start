@@ -29,17 +29,14 @@ class CategoriesController extends Controller
 
     public function store($id = null)
     {
+        $params = [
+            'name' => $_POST['name'],
+        ];
         if ( $id ) {
-            $params = [
-                'id' => $id,
-                'name' => $_POST['name'],
-            ];
-            $this->model->update('categories', $params);
+            $params += ['id' => $id];
+            $this->model->update($params);
         } else {
-            $params = [
-                'name' => $_POST['name']
-            ];
-            $this->model->insert('categories', $params);
+            $this->model->insert($params);
         }
         header('location: /categories');
     }

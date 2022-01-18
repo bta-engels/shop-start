@@ -10,7 +10,7 @@ $id = null;
 
 if( isset($_GET['controller']) ) {
     // @todo: build router logic
-    switch($_GET['controller']) 
+    switch($_GET['controller'])
     {
         case 'manufacturers':
             // ManufacturersController importieren und als $controller instanzieren
@@ -23,27 +23,23 @@ if( isset($_GET['controller']) ) {
             $controller = new ProductsController();
             break;
         case 'user':
-            // UsersController importieren und als $controller instanzieren
+        case 'users':
             require_once 'controllers/UsersController.php';
             $controller = new UsersController();
             break;
-        case 'features':
-            // UsersController importieren und als $controller instanzieren
-            require_once 'controllers/FeaturesController.php';
-            $controller = new FeaturesController();
-            break;
-        case 'blogs':
-            // UsersController importieren und als $controller instanzieren
-            require_once 'controllers/BlogsController.php';
-            $controller = new BlogsController();
-            break;
         case 'pages':
-            // UsersController importieren und als $controller instanzieren
             require_once 'controllers/PagesController.php';
             $controller = new PagesController();
             break;
+        case 'blogs':
+            require_once 'controllers/BlogsController.php';
+            $controller = new BlogsController();
+            break;
+        case 'features':
+            require_once 'controllers/FeaturesController.php';
+            $controller = new FeaturesController();
+            break;
         case 'categories':
-            // UsersController importieren und als $controller instanzieren
             require_once 'controllers/CategoriesController.php';
             $controller = new CategoriesController();
             break;
@@ -51,9 +47,9 @@ if( isset($_GET['controller']) ) {
     // hier action abfragen
     if( isset($_GET['action']) && $controller && method_exists($controller, $_GET['action']) ) {
         $action = $_GET['action'];
-        // checken ob es eine id gibt, die der funktion übergeben werden soll 
+        // checken ob es eine id gibt, die der funktion übergeben werden soll
         if (isset($_GET['id'])) {
-            $id = $_GET['id'];
+            $id = (int) $_GET['id'];
             $controller->$action($id);
         } else {
             $controller->$action();

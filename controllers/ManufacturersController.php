@@ -23,26 +23,22 @@ class ManufacturersController extends Controller
         $data = null;
         if ( $id ) {
             $data = $this->model->one($id);
-            $data['description'] = str_replace('<br />',"\n", $data['description']);
+            $data['description'] = strip_tags($data['description']);
         }
         require_once $this->viewPath.'/edit.php';
     }
 
     public function store($id = null)
     {
+        $params = [
+            'name' => $_POST['name'],
+            'description' => nl2br($_POST['description']),
+        ];
         if ( $id ) {
-            $params = [
-                'id' => $id,
-                'name' => $_POST['name'],
-                'description' => nl2br($_POST['description']),
-            ];
-            $this->model->update('manufacturers', $params);
+            $params += ['id' => $id];
+            $this->model->update($params);
         } else {
-            $params = [
-                'name' => $_POST['name'],
-                'description' => nl2br($_POST['description']),
-            ];
-            $this->model->insert('manufacturers', $params);
+            $this->model->insert($params);
         }
         header('location: /manufacturers');
     }

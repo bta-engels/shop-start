@@ -8,7 +8,7 @@ class Controller {
 
     /**
      * Constructor function
-     * wird automatisch ausgeführt bei der Instanzierung der Klasse 
+     * wird automatisch ausgeführt bei der Instanzierung der Klasse
      */
     public function __construct()
     {
@@ -18,13 +18,11 @@ class Controller {
         }
 
         $modelPath = strtolower($this->modelClass);
-        
+
         if ( isset($_SESSION['auth']) ) {
             $this->viewPath = 'views/admin/'.$modelPath;
         } else {
             $this->viewPath = 'views/public/'.$modelPath;
-
         }
     }
-
 }

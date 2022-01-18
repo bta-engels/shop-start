@@ -3,46 +3,42 @@ require_once 'models/Model.php';
 
 class Products extends Model {
 
-    public function all() {
+    protected $table = 'products';
+
+    public function all($orderBy = 'name') {
         $sql = "SELECT 
-            p.manufacturer_id,
             p.id,
             p.name,
             p.description,
             p.manufacturer_id, 
-            p.categorie_id,
-            c.name categorie_name,
+            c.id category_id,
+            c.name category_name,
             m.name manufacturer_name,
             m.description manufacturer_description
-        FROM products p 
-        JOIN manufacturers m ON m.id = p.manufacturer_id 
-        JOIN categories c ON c.id = p.categorie_id 
-        ORDER BY name";
+        FROM $this->table p 
+        JOIN manufacturers m ON m.id = p.manufacturer_id
+        JOIN categories c ON c.id = p.category_id 
+        ORDER BY name
+        ";
 
         return $this->getAll($sql);
     }
 
     public function one($id) {
         $sql = "SELECT 
-            p.manufacturer_id,
-            p.categorie_id,
             p.id,
             p.name,
-            c.name categorie_name,
             p.description,
             p.manufacturer_id, 
+            c.id category_id,
+            c.name category_name,
             m.name manufacturer_name,
             m.description manufacturer_description
-        FROM products p 
+        FROM $this->table p 
         JOIN manufacturers m ON m.id = p.manufacturer_id
-        JOIN categories c ON c.id = p.categorie_id 
+        JOIN categories c ON c.id = p.category_id 
         WHERE p.id = ?";
 
         return $this->getOne($sql, [$id]);
     }
-
-    public function delete($id) {
-        return $this->remove('products', $id);
-    }
-
 }
