@@ -15,7 +15,7 @@
 
         <div class="box">
             <h3 class="title">kontakt info</h3>
-            <a href="#" class="link"><i class="fas fa-phone"></i>111-345-6666</a>
+            <a href="tel:+491113456666" class="link"><i class="fas fa-phone"></i>111-345-6666</a>
             <a href="#" class="link"><i class="fas fa-phone"></i>111-333-4567</a>
             <a href="#" class="link"
             ><i class="fas fa-envelope"></i>hamza@hamza.com</a
