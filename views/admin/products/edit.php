@@ -1,6 +1,7 @@
 <div class="editBox">
-    <form  action="/products/store<?php if(isset($data['id'])) echo '/'.$data['id']; ?>"
+    <form action="/products/store<?php if(isset($data['id'])) echo '/'.$data['id']; ?>"
         method="post"
+       enctype="multipart/form-data"
     >
         <h2>Produkt</h2>
         <label>Name</label><br>
@@ -40,6 +41,8 @@
         <label>Beschreibung</label><br>
         <textarea name="description" class="field" cols="30" rows="10"
         placeholder="Description"><?php echo $data['description'] ?? ''; ?></textarea>
+        <label>Bild <?php if(isset($data['image'])  && '' !== $data['image']) echo "($data[image])"; ?></label><br>
+        <input type="file" name="image" />
         <button class="btn">Speichern</button>
     </form>
 </div>
