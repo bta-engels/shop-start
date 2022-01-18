@@ -1,14 +1,13 @@
 <?php
 require_once 'controllers/Controller.php';
 
-class ManufacturersController extends Controller
+class FeaturesController extends Controller
 {
-
-    protected $modelClass = 'Manufacturers';
+    protected $modelClass = 'Features';
 
     public function index()
     {
-        $data = $this->model->all();
+        $data = $this->model->all('title');
         require_once $this->viewPath.'/index.php';
     }
 
@@ -21,18 +20,20 @@ class ManufacturersController extends Controller
     public function edit($id = null)
     {
         $data = null;
+
         if ( $id ) {
             $data = $this->model->one($id);
-            $data['description'] = strip_tags($data['description']);
+            $data['body'] = strip_tags($data['body']);
         }
+
         require_once $this->viewPath.'/edit.php';
     }
 
     public function store($id = null)
     {
         $params = [
-            'name' => $_POST['name'],
-            'description' => nl2br($_POST['description']),
+            'title' => $_POST['title'],
+            'body'  => nl2br($_POST['body']),
         ];
         if ( $id ) {
             $params += ['id' => $id];
@@ -40,11 +41,11 @@ class ManufacturersController extends Controller
         } else {
             $this->model->insert($params);
         }
-        header('location: /manufacturers');
+        header('location: /features');
     }
 
     public function delete(int $id) {
         $this->model->delete($id);
-        header('location: /manufacturers');
+        header('location: /features');
     }
 }

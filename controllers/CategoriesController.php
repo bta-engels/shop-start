@@ -1,10 +1,10 @@
 <?php
 require_once 'controllers/Controller.php';
 
-class ManufacturersController extends Controller
+class CategoriesController extends Controller
 {
 
-    protected $modelClass = 'Manufacturers';
+    protected $modelClass = 'Categories';
 
     public function index()
     {
@@ -23,7 +23,6 @@ class ManufacturersController extends Controller
         $data = null;
         if ( $id ) {
             $data = $this->model->one($id);
-            $data['description'] = strip_tags($data['description']);
         }
         require_once $this->viewPath.'/edit.php';
     }
@@ -32,7 +31,6 @@ class ManufacturersController extends Controller
     {
         $params = [
             'name' => $_POST['name'],
-            'description' => nl2br($_POST['description']),
         ];
         if ( $id ) {
             $params += ['id' => $id];
@@ -40,11 +38,11 @@ class ManufacturersController extends Controller
         } else {
             $this->model->insert($params);
         }
-        header('location: /manufacturers');
+        header('location: /categories');
     }
 
     public function delete(int $id) {
         $this->model->delete($id);
-        header('location: /manufacturers');
+        header('location: /categories');
     }
 }

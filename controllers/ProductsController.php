@@ -1,6 +1,7 @@
 <?php
 require_once 'controllers/Controller.php';
 require_once 'models/Manufacturers.php';
+require_once 'models/Categories.php';
 
 class ProductsController extends Controller
 {
@@ -20,13 +21,15 @@ class ProductsController extends Controller
 
     public function edit($id = null)
     {
-        var_dump($id);
         $data = null;
         $manufacturers = (new Manufacturers)->all();
+        $categories = (new Categories)->all();
+
         if ( $id ) {
             $data = $this->model->one($id);
-            $data['description'] = str_replace('<br />',"\n", $data['description']);
+            $data['description'] = strip_tags($data['description']);
         }
+
         require_once $this->viewPath.'/edit.php';
     }
 
@@ -35,13 +38,14 @@ class ProductsController extends Controller
         $params = [
             'name'              => $_POST['name'],
             'manufacturer_id'   => $_POST['manufacturer_id'],
+            'category_id'       => $_POST['category_id'],
             'description'       => nl2br($_POST['description']),
         ];
         if ( $id ) {
             $params += ['id' => $id];
-            $this->model->update('products', $params);
+            $this->model->update($params);
         } else {
-            $this->model->insert('products', $params);
+            $this->model->insert($params);
         }
         header('location: /products');
     }
