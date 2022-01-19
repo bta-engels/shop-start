@@ -9,6 +9,7 @@ class Products extends Model {
         $sql = "SELECT 
             p.id,
             p.name,
+            p.image,
             p.description,
             p.manufacturer_id, 
             c.id category_id,
@@ -28,6 +29,7 @@ class Products extends Model {
         $sql = "SELECT 
             p.id,
             p.name,
+            p.image,
             p.description,
             p.manufacturer_id, 
             c.id category_id,
