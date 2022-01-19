@@ -1,7 +1,6 @@
 <div class="editBox">
     <form  action="/products/store<?php if(isset($data['id'])) echo '/'.$data['id']; ?>"
-        method="post"
-    >
+        method="post"  enctype="multipart/form-data">
         <h2>Produkt</h2>
         <label>Name</label><br>
         <input type="text" name="name" class="field" placeholder="Name"
